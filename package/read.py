@@ -31,8 +31,8 @@ def imput(arguments: list) -> list:
     set default join type and inform about incomplete information
     '''
     if len(arguments) == 4:
-        arguments.append("left")
-        print("unspeciffy join type, process with type \"right\"")
+        arguments.append("inner")
+        print("unspeciffy join type, process with type \"inner\"")
     elif len(arguments) != 5:
         print("wrong number of arguments")
 
@@ -50,17 +50,9 @@ def findMatchingRows(matrix_one: list, matrix_two: list, join_by: str) -> list:
     matching_index_one = []
     matching_index_two = [] 
     matching_index = []
-    
+
     for record_one in range(len(matrix_one.T[key_index_one][0])):
         record_two = np.where(matrix_two.T[key_index_two][0] == matrix_one.T[key_index_one][0][record_one])
-
-    #     if record_two[0].size != 0:
-    #         matching_index_one.append(record_one)
-    #         matching_index_two.append(record_two[0][0])
-    #     elif record_two[0].size == 0:
-    #         matching_index_one.append(record_one)
-    #         matching_index_two.append(0:0)
-    # return np.array([matching_index_one, matching_index_two])
 
         if record_two[0].size != 0:
             matching_index_one = record_one 

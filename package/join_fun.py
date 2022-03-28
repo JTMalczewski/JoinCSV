@@ -6,7 +6,7 @@ from package import read
 
 def joinLeft(matrix_one: list, matrix_two: list, join_by: str) -> list:
     '''
-    Left join two list
+    returns all rows from the left table, and the matching rows from the right table
     '''
     index = read.findMatchingRows(matrix_one,matrix_two,join_by)
     key_index_two = np.where(matrix_two[0] == join_by)
@@ -32,7 +32,7 @@ def joinLeft(matrix_one: list, matrix_two: list, join_by: str) -> list:
 
 def joinRight(matrix_one: list, matrix_two: list, join_by: str) -> list:
     '''
-    Right join two list
+    returns all rows from the right table, and the matching rows from the right table
     '''
     index = read.findMatchingRows(matrix_two,matrix_one,join_by)
 
@@ -60,7 +60,7 @@ def joinRight(matrix_one: list, matrix_two: list, join_by: str) -> list:
 
 def joinInner(matrix_one: list, matrix_two: list, join_by: str) -> list:
     '''
-    Inner join two list
+    returns matching rows from both the participating tables
     '''
     index = read.findMatchingRows(matrix_one,matrix_two,join_by)
     key_index_two = np.where(matrix_two[0] == join_by)
