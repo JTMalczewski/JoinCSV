@@ -1,7 +1,6 @@
 
-import imp
-from matplotlib.pyplot import margins
-from numpy import append
+from numpy import NaN
+import numpy as np
 
 
 def openFile(filename: str) -> list:
@@ -40,24 +39,35 @@ def imput(arguments: list) -> list:
     return arguments
 
 
-def find_matching_rows(matrix_one: list, matrix_two: list, join_by: str) -> list:
+def findMatchingRows(matrix_one: list, matrix_two: list, join_by: str) -> list:
     '''
     find row indexes with matching records between two columns with the same name in two databases
     '''
-    import numpy as np
 
-    kay_index_one = np.where(matrix_one[0] == join_by)
-    kay_index_two = np.where(matrix_two[0] == join_by)
+    key_index_one = np.where(matrix_one[0] == join_by)
+    key_index_two = np.where(matrix_two[0] == join_by)
 
     matching_index_one = []
     matching_index_two = [] 
+    matching_index = []
     
-    for record_one in range(len(matrix_one.T[kay_index_one][0])):
-        record_two = np.where(matrix_two.T[kay_index_two][0] == matrix_one.T[kay_index_one][0][record_one])
+    for record_one in range(len(matrix_one.T[key_index_one][0])):
+        record_two = np.where(matrix_two.T[key_index_two][0] == matrix_one.T[key_index_one][0][record_one])
+
+    #     if record_two[0].size != 0:
+    #         matching_index_one.append(record_one)
+    #         matching_index_two.append(record_two[0][0])
+    #     elif record_two[0].size == 0:
+    #         matching_index_one.append(record_one)
+    #         matching_index_two.append(0:0)
+    # return np.array([matching_index_one, matching_index_two])
 
         if record_two[0].size != 0:
-            matching_index_one.append(record_one)
-            matching_index_two.append(record_two[0][0])
-
-    return [matching_index_one, matching_index_two]
+            matching_index_one = record_one 
+            matching_index_two = record_two[0][0]
+        elif record_two[0].size == 0:
+            matching_index_one = record_one
+            matching_index_two = ''
+        matching_index.append([matching_index_one,matching_index_two])
+    return matching_index
 
