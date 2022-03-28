@@ -1,5 +1,5 @@
 import unittest
-from package import *
+from package import read
 
 class TestCSV(unittest.TestCase):
 
