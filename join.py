@@ -15,14 +15,12 @@ matrix_one = np.array(read.splitRow(rows_one))
 rows_two = np.array(read.openFile(data_source_two))
 matrix_two = np.array(read.splitRow(rows_two))
 
-maching_indexes = read.findMatchingRows(matrix_one,matrix_two,collumn_name)
-
 if join_type == 'left':
-    matrix_new = join_fun.joinLeft(matrix_one, matrix_two, collumn_name, maching_indexes)
+    matrix_new = join_fun.joinLeft(matrix_one, matrix_two, collumn_name)
 elif join_type == 'right':
-    matrix_new = join_fun.joinRight(matrix_one, matrix_two, collumn_name, maching_indexes)
+    matrix_new = join_fun.joinRight(matrix_one, matrix_two, collumn_name)
 elif join_type == 'inner':
-    matrix_new = join_fun.joinInner(matrix_one, matrix_two, collumn_name, maching_indexes)
+    matrix_new = join_fun.joinInner(matrix_one, matrix_two, collumn_name)
 
 draw.printCSV(matrix_new)
 

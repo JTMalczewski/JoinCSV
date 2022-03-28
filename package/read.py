@@ -31,7 +31,7 @@ def imput(arguments: list) -> list:
     set default join type and inform about incomplete information
     '''
     if len(arguments) == 4:
-        arguments.append("right")
+        arguments.append("left")
         print("unspeciffy join type, process with type \"right\"")
     elif len(arguments) != 5:
         print("wrong number of arguments")
