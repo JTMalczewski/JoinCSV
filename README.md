@@ -18,9 +18,10 @@ Project is created with:
 
 ### Launch
 To start the merging script run: <br /> `$ join.py file_path file_path column_name join_type` <br />
-`file_path` - linuks path to csv datafile conform to the [rfc4180](https://datatracker.ietf.org/doc/html/rfc4180)
-`column_name ` - choose the header of your column from data file for join operation
-`join_type` - choose `inner`, `left` or `right`. By default join type is set to `inner`. This solution helps to spot significant lines and don't generate empty cells. To read more about join types, I recomend [metabase.com](https://www.metabase.com/learn/sql-questions/sql-join-types) article (basic SQL knowledge is needed).
+`file_path` - linuks path to csv datafile conform to the [rfc4180](https://datatracker.ietf.org/doc/html/rfc4180)<br />
+`column_name ` - choose the header of your column from data file for join operation<br />
+`join_type` - choose `inner`, `left` or `right`.
+<br /> By default join type is set to `inner`. This solution helps to spot significant lines and don't generate empty cells. To read more about join types, I recomend [metabase.com](https://www.metabase.com/learn/sql-questions/sql-join-types) article (basic SQL knowledge is needed).
 
 ### Attached databases
 Test CSV files [source](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html):
