@@ -1,8 +1,7 @@
 # JoinCSV
 ## recruitment task
 ### Goal
-Implement an executable program, which will read two csv files, join them using a specified column and then write the result to the standard output.<br />
-Users should be able to specify the join type (inner, left or right).<br />
+Implement an executable program, which will read two csv files, join them using a specified column and then write the result to the standard output. Users should be able to specify the join type (inner, left or right).<br />
 ![cool spheres](https://c.tenor.com/lonETsK3tScAAAAC/pak-pak-merge.gif)
 
 ### Table of contents
