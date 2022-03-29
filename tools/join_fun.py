@@ -19,7 +19,7 @@ def joinLeft(matrix_one: list, matrix_two: list, join_by: str) -> list:
         if index[i][1] == '':                                           #empty string mark unmatched rows
             merged_matrix.append(                                       #writes a row with values from the first matrix and NaN for every column in the second matrix
                np.append(matrix_one[index[i][0]],
-               len_two*[[NaN]])
+               len_two*[['']])
                )
         else: 
             merged_matrix.append(                                       #writes a row with all values described
@@ -46,7 +46,7 @@ def joinRight(matrix_one: list, matrix_two: list, join_by: str) -> list:
 
         if index[i][1] == '':                                           #empty string mark unmached rows
             merged_matrix.append(                                       #writes a row with values from the second matrix and NaN for every column in the first matrix
-               np.append(len_one*[[NaN]],
+               np.append(len_one*[['']],
                matrix_two[index[i][0]],)
                )
         else: 

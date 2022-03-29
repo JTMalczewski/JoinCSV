@@ -4,11 +4,11 @@ import numpy as np
 
 
 
-argument = read.input(sys.argv)                                             #naming arguments from command window
-data_source_one = argument[1]
-data_source_two = argument[2]
-collumn_name = argument[3]
-join_type = argument[4]
+arguments = read.input(sys.argv)                                             #naming arguments from command window
+data_source_one = arguments[1]
+data_source_two = arguments[2]
+collumn_name = arguments[3]
+join_type = arguments[4]
 
 rows_one = np.array(read.openFile(data_source_one))                         #exports data from CSV files to numpy 2D array
 matrix_one = np.array(read.splitRow(rows_one))

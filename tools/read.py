@@ -22,12 +22,12 @@ def splitRow(rows: str) -> list:
     mach_comma = re.compile(r",(?=(?:[^\"']*[\"'][^\"']*[\"'])*[^\"']*$)")
     for i in range(len(rows)-1):
         separated = mach_comma.split(rows[i])
-        separated[-1] = separated[-1][0:-1]             #deletes the line break symbol
+        separated[-1] = separated[-1][:-1]             #deletes the line break symbol
         data_matrix.append(separated)
 
     separated  = rows[-1].split(',')
     if separated[-1][-1] == "\n":
-        separated[-1] = separated[-1][0:-1]             #check if it's needed to delete the line break symbol
+        separated[-1] = separated[-1][:-1]             #check if it's needed to delete the line break symbol
     data_matrix.append(separated)
     
     return data_matrix
@@ -39,9 +39,17 @@ def input(arguments: list) -> list:
     '''
     if len(arguments) == 4:
         arguments.append("inner")
-        print("Wrong number of arguments.\nPossible unspecified join type, process with type \"inner\".\nmake sure to check executed command.\n")
+
+        print('''
+        Wrong number of arguments. Possible unspecified join type, process with type "inner".
+        Make sure to check executed command.
+        ''')
+
     elif len(arguments) != 5:
-        sys.exit("Wrong number of arguments\nScript terminated")
+        sys.exit('''
+        Wrong number of arguments
+        Script terminated
+        ''')
 
     return arguments
 
@@ -62,14 +70,14 @@ def findMatchingRows(matrix_one: list, matrix_two: list, join_by: str) -> list:
     matrix_lenght = len(matrix_one.T[key_index_one][0])
 
     #iterates by every line in a common column in the first data file and searches for the same values in the second data file 
-    for record_one in range(matrix_lenght):
-        record_two = np.where(matrix_two.T[key_index_two][0] == matrix_one.T[key_index_one][0][record_one])
+    for index_one in range(matrix_lenght):
+        record_two = np.where(matrix_two.T[key_index_two][0] == matrix_one.T[key_index_one][0][index_one])
 
         if record_two[0].size != 0:                     #saves the index of common value for both data files
-            matching_index_one = record_one 
+            matching_index_one = index_one 
             matching_index_two = record_two[0][0]
         elif record_two[0].size == 0:                   #saves the index of not common values, an empty string is used as a mark
-            matching_index_one = record_one
+            matching_index_one = index_one
             matching_index_two = ''
 
         matching_index.append([matching_index_one,matching_index_two])

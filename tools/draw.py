@@ -4,12 +4,9 @@ def printCSV(matrix: list) -> None:
     '''
     rows = []
     for row in matrix:
-        line = ''
-        for word in row:
-            line += word
-            line += ','
-        line = line[:-1]
+        line = ",".join(row)
         line += '\n'
         rows.append(line)
     print(''.join(rows))
-    return None
+    
+    return
