@@ -16,7 +16,7 @@ Project is created with:
 - Python 3.8.10
 
 ### Launch
-To start the merging script run: <br /> `$ join.py file_path file_path column_name join_type` <br />
+To start the merging script run: <br /> `$ python3 join.py file_path file_path column_name join_type` <br />
 `file_path` - linuks path to csv datafile conform to the [rfc4180](https://datatracker.ietf.org/doc/html/rfc4180)<br />
 `column_name ` - choose the header of your column from data file for join operation<br />
 `join_type` - choose `inner`, `left` or `right`.
