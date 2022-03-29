@@ -1,5 +1,5 @@
 import unittest
-from package import read
+from package import read, join_fun, draw
 
 class TestCSV(unittest.TestCase):
 

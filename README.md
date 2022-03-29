@@ -6,7 +6,6 @@ Implement an executable program, which will read two csv files, join them using 
 
 ### Table of contents
 - [Goal](#goal)
-- [cool gif](#cool-spheres)
 - [Technologies](#Technologies)
 - [Launch](#Launch)
 - [Attached databases](#Attached-databases)
