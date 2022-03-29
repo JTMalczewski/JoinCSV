@@ -1,7 +1,7 @@
 from numpy import NaN
 import numpy as np
 import sys
-
+import re
 
 def openFile(filename: str) -> list:
     '''
@@ -19,14 +19,21 @@ def splitRow(rows: str) -> list:
     split string list by commas and convert to 2D string matrix
     '''
     data_matrix = []
-    for i in range(len(rows)):
-        separated  = rows[i].split(',')
+    mach_comma = re.compile(r",(?=(?:[^\"']*[\"'][^\"']*[\"'])*[^\"']*$)")
+    for i in range(len(rows)-1):
+        separated = mach_comma.split(rows[i])
         separated[-1] = separated[-1][0:-1]             #deletes the line break symbol
         data_matrix.append(separated)
+
+    separated  = rows[-1].split(',')
+    if separated[-1][-1] == "\n":
+        separated[-1] = separated[-1][0:-1]             #check if it's needed to delete the line break symbol
+    data_matrix.append(separated)
+    
     return data_matrix
 
 
-def imput(arguments: list) -> list:
+def input(arguments: list) -> list:
     '''
     set default join type and inform about incomplete information
     '''

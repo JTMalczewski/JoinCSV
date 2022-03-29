@@ -1,10 +1,10 @@
-from package import *
+from tools import *
 import sys
 import numpy as np
 
 
 
-argument = read.imput(sys.argv)                                             #naming arguments from command window
+argument = read.input(sys.argv)                                             #naming arguments from command window
 data_source_one = argument[1]
 data_source_two = argument[2]
 collumn_name = argument[3]
